@@ -3,8 +3,6 @@
 // (A и B) и возводит число A в натуральную степень B.
 //========================================================================
 
-Console.WriteLine("\nTasks lesson.");
-
 int ReadData(string line)
 {
     Console.Write(line);
@@ -42,68 +40,3 @@ Console.WriteLine(DateTime.Now - d1);
 DateTime d2 = DateTime.Now;
 PrintResult("A в степени B через Math:" + Pow2(numA1, numB1));
 Console.WriteLine(DateTime.Now - d2);
-// Через Math быстрее примерно в 8 раз
-
-// Калькулятор с пятью операциями +, -, *, /, ^
-Console.WriteLine("\nКалькулятор с пятью операциями.");
-// Метод ввода чисел из задачи выше
-
-char ReadOperator(string line)
-{
-    Console.Write(line + " (+, -, *, /, ^): ");
-    string operString = Console.ReadLine() ?? "0";
-    char oper = operString[0];
-    return oper;
-}
-
-// Методы арифметических операций:
-string addNum(double A, double B)
-{
-    return (A + B).ToString();
-}
-string subNum(double A, double B)
-{
-    return (A - B).ToString();
-}
-string multNum(double A, double B)
-{
-    return (A * B).ToString();
-}
-string divNum(double A, double B)
-{
-    if (B != 0)
-    {
-        return (A / B).ToString();
-    }
-    else
-    {
-        return "Делить на ноль нельзя!";
-    }
-}
-string expoNum(double A, double B)
-{
-    return (Math.Pow(A, B)).ToString();
-}
-
-// Метод - калькулятор.
-string Calculator(double A, double B, char mOper)
-{
-    switch (mOper)
-    {
-        case '+': Console.WriteLine("\nСложение чисел = " + addNum(A, B)); break;
-        case '-': Console.WriteLine("\nВычитание чисел = " + subNum(A, B)); break;
-        case '*': Console.WriteLine("\nУмножение чисел = " + multNum(A,B)); break;
-        case '/': Console.WriteLine("\nДеление чисел = " + divNum(A,B)); break;
-        case '^': Console.WriteLine("\nВозведение числа А в степень В = " + expoNum(A, B)); break;
-        default: Console.WriteLine("\nТакой операции нет!"); break;
-    }
-    return "";
-}
-
-double numA2 = ReadData("\nВведите число A:");
-char mathOper = ReadOperator("оператор");
-double numB2 = ReadData("Введите число B:");
-
-DateTime d3 = DateTime.Now;
-Calculator(numA2, numB2, mathOper);
-Console.WriteLine(DateTime.Now - d3);
